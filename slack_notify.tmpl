@@ -1,0 +1,23 @@
+# Slack deploy notifications
+files:
+  '/var/beanstalk-notify/slack_deploy.sh':
+    owner: root
+    group: root
+    mode: '000755'
+    source: https://{{ settings.AWS_CONFIG_BUCKET }}.s3.amazonaws.com{{ settings.AWS_SLACK_SCRIPT }}
+    authentication: S3Access
+
+container_commands:
+  01_aws-eb-slack-deploynotify:
+    command: "/var/beanstalk-notify/slack_deploy.sh -a ${APP_NAME} -c ${SLACK_CHANNEL} -w ${SLACK_WEBHOOK_URL}"
+    leader_only: true
+    ignoreErrors: true
+
+Resources:
+  AWSEBAutoScalingGroup:
+    Metadata:
+      AWS::CloudFormation::Authentication:
+        S3Access:
+          type: S3
+          roleName: {{ settings.EB_ROLENAME }}
+          buckets: {{ settings.AWS_CONFIG_BUCKET }}
