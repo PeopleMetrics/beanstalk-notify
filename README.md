@@ -2,10 +2,12 @@
 
 Know what is going on with your Elastic Beanstalk in Slack when deploying to EC2 Beanstalks.  This EB setup was done with Python/Django in mind, but it will expand at some point.  
 
-_**CAUTION TO THOSE WHO ENTER: This is fully a work in progress and is not polished. In fact the current slack notification works well, but the formatting leaves empty variables and look weird.  Like:
+_**CAUTION TO THOSE WHO ENTER: This is fully a work in progress and is not polished. In fact the current slack notification works well, but the formatting leaves empty variables and look weird thusly:**_
+
 ![See]
 (http://i.imgur.com/UaZPFM4.png) 
-So missing is the actual app version, who deplopyed (user, Jenkins, etc) and the environment of of the deploy.  Kinda importantt, and will be addressed ASAP.**_
+
+_**So missing is the actual app version, who deplopyed (user, Jenkins, etc) and the environment of of the deploy.  Kind of important, and will be addressed ASAP.**_
 
 
 ____
